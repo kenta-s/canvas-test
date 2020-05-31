@@ -55,9 +55,38 @@ const drawLines = function() {
   ctx.stroke();
 }
 
+const draw = function(angle) {
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const width = 200;
+  const height = 200;
+
+  ctx.clearRect(0,0,width,height)
+
+  ctx.beginPath();
+  ctx.moveTo(0, 180);
+  ctx.lineTo(width, 180);
+
+  const leftPadding = 30;
+
+  let x = (angle / 180.0) * Math.PI;
+  x = height / Math.tan(x) + leftPadding;
+
+  ctx.moveTo(leftPadding, 180);
+  ctx.lineTo(x, 0);
+  ctx.closePath();
+  ctx.stroke();
+}
+
 document.addEventListener("DOMContentLoaded", function(){
   drawRectangles();
   drawTriangles();
   drawCircles();
   drawLines();
+
+  const element = document.getElementById('angle');
+
+  element.addEventListener('input', function (evt) {
+    draw(this.value);
+  });
 });

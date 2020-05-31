@@ -6,12 +6,18 @@
     </title>
     <script type="text/javascript" src="canvasTest.js"></script>
     <style>
-      #canvas-1, #canvas-2, #canvas-3, #canvas-4 {
+      #canvas, #canvas-1, #canvas-2, #canvas-3, #canvas-4 {
         border: 1px solid #cccccc;
       }
     </style>
   </head>
   <body>
+    <div>
+      <canvas id="canvas" width="200" height="200"></canvas>
+      <label for="angle">Angle(degree)</label>
+      <input type="number" id="angle">
+    </div>
+
     <div>
       <canvas id="canvas-1"></canvas>
     </div>
