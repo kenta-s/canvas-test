@@ -70,9 +70,8 @@ const draw = function(angle) {
   const leftPadding = 30;
   const bottomPadding = 20;
 
-  let x = (angle / 180.0) * Math.PI;
   const radian = (angle / 180.0) * Math.PI;
-  x = (height - bottomPadding) / Math.tan(radian) + leftPadding;
+  const x = (height - bottomPadding) / Math.tan(radian) + leftPadding;
 
   ctx.moveTo(leftPadding, 180);
   ctx.lineTo(x, 0);
@@ -85,7 +84,12 @@ const draw = function(angle) {
   const y1 = -100 * Math.sin(radian);
 
   ctx.rotate(-radian);
-  ctx.fillStyle = 'rgb(0,0,200)';
+  if(angle === '30'){
+    ctx.fillText("Hello world", x1, y1 - 20);
+    ctx.fillStyle = 'rgb(200,0,0)';
+  }else{
+    ctx.fillStyle = 'rgb(0,0,200)';
+  }
   ctx.fillRect(100, 0, 40, -40);
   ctx.restore();
 }
